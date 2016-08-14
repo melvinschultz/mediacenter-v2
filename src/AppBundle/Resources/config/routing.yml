@@ -1,0 +1,7 @@
+homepage:
+    path: /
+    defaults: { _controller: 'AppBundle:Homepage:index' }
+
+add:
+    path: /add
+    defaults: { _controller: '' }
