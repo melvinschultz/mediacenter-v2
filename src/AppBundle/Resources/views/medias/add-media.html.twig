@@ -1,5 +1,16 @@
 {% extends 'AppBundle::base.html.twig'%}
 
 {% block body %}
-    <h1>PAGE AJOUT MEDIAS</h1>
+
+    {{ form_start(form) }}
+        <div class="form-group">
+        {{ form_label(form) }}
+        {{ form_widget(form) }}
+        {{ form_errors(form) }}
+        </div>
+        <button class="btn btn-hg btn-primary">
+            Ajouter le média
+        </button>
+    {{ form_end(form) }}
+
 {% endblock body %}
