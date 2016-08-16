@@ -1,5 +1,9 @@
 {% extends 'AppBundle::base.html.twig'%}
 
 {% block body %}
-    <h1>PAGE MES FILMS</h1>
+    <h3>Films</h3>
+
+    {% for film in films %}
+        <a data-toggle="modal" data-target="#descModal" href="" class="affiche"><img src="uploads/{{ film.image }}" alt="{{ film.nom }}" title="{{ film.nom }}" /></a>
+    {% endfor %}
 {% endblock body %}

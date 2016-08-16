@@ -4,7 +4,6 @@
     <h3>Films &amp; Séries</h3>
 
     {% for media in medias %}
-        {{ media.nom }}
-        {{ media.image }}
+        <a data-toggle="modal" data-target="#descModal" href="" class="affiche"><img src="uploads/{{ media.image }}" alt="{{ media.nom }}" title="{{ media.nom }}" /></a>
     {% endfor %}
 {% endblock body %}

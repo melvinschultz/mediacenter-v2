@@ -1,5 +1,9 @@
 {% extends 'AppBundle::base.html.twig'%}
 
 {% block body %}
-    <h1>PAGE MES SERIES</h1>
+    <h3>Séries</h3>
+
+    {% for serie in series %}
+        <a data-toggle="modal" data-target="#descModal" href="" class="affiche"><img src="uploads/{{ serie.image }}" alt="{{ serie.nom }}" title="{{ serie.nom }}" /></a>
+    {% endfor %}
 {% endblock body %}

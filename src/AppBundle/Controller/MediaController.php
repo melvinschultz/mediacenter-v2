@@ -53,22 +53,42 @@ class MediaController extends Controller
     /**
      * @Route("/movies", name="movies")
      */
-    public function showAllMoviesAction(Request $request)
+    public function showAllMoviesAction()
     {
+        $films = $this->getDoctrine()
+            ->getRepository('AppBundle:Medias')
+            ->findBy(array('type' => 'film'));
+
+        if (!$films) {
+            throw $this->createNotFoundException(
+                'Aucun film trouvé'
+            );
+        }
+
         // replace this example code with whatever you need
-        return $this->render('@App/medias/movies.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+        return $this->render('AppBundle:medias:movies.html.twig', array(
+            'films' => $films,
         ));
     }
 
     /**
      * @Route("/series", name="series")
      */
-    public function showAllSeriesAction(Request $request)
+    public function showAllSeriesAction()
     {
+        $series = $this->getDoctrine()
+            ->getRepository('AppBundle:Medias')
+            ->findBy(array('type' => 'serie'));
+
+        if (!$series) {
+            throw $this->createNotFoundException(
+                'Aucune série trouvée'
+            );
+        }
+
         // replace this example code with whatever you need
-        return $this->render('@App/medias/series.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+        return $this->render('AppBundle:medias:series.html.twig', array(
+            'series' => $series,
         ));
     }
 
@@ -83,7 +103,7 @@ class MediaController extends Controller
 
         if (!$medias) {
             throw $this->createNotFoundException(
-                'Aucun film trouvé'
+                'Aucun film ou série trouvé(e)'
             );
         }
 
