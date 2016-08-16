@@ -2,15 +2,88 @@
 
 {% block body %}
 
-    {{ form_start(form) }}
-        <div class="form-group">
-        {{ form_label(form) }}
-        {{ form_widget(form) }}
-        {{ form_errors(form) }}
-        </div>
-        <button class="btn btn-hg btn-primary">
-            Ajouter le média
-        </button>
-    {{ form_end(form) }}
+    <div class="container container-body">
+
+        <h3>Ajouter un film ou une série</h3>
+
+        {{ form_start(form) }}
+            <div class="form-group">
+                {{ form_label(form.type) }}
+                {{ form_widget(form.type) }}
+                {{ form_errors(form.type) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.status) }}
+                {{ form_widget(form.status) }}
+                {{ form_errors(form.status) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.image) }}
+                {{ form_widget(form.image, {'attr': {'id': 'affiche'}}) }}
+                {{ form_errors(form.image) }}
+            </div>
+
+            <div class="form-group">
+                {#{{ form_label(form.nom) }}#}
+                {{ form_widget(form.nom, {'attr': {
+                    'class': 'form-control',
+                    'placeholder': 'Titre du film ou de la série'
+                }}) }}
+                {{ form_errors(form.nom) }}
+            </div>
+
+            <div class="form-group">
+                {#{{ form_label(form.realisateurs) }}#}
+                {{ form_widget(form.realisateurs, {'attr': {
+                    'class': 'form-control',
+                    'placeholder': 'Réalisateur(s)'
+
+                }}) }}
+                {{ form_errors(form.realisateurs) }}
+            </div>
+
+            <div class="form-group">
+                {#{{ form_label(form.acteurs) }}#}
+                {{ form_widget(form.acteurs, {'attr': {
+                    'class': 'form-control',
+                    'placeholder': 'Acteur(s)'
+
+                }}) }}
+                {{ form_errors(form.acteurs) }}
+            </div>
+
+            <div class="form-group">
+                {#{{ form_label(form.description) }}#}
+                {{ form_widget(form.description, {'attr': {
+                    'class': 'form-control',
+                    'placeholder': 'Description'
+
+                }}) }}
+                {{ form_errors(form.description) }}
+            </div>
+
+            <div class="form-group">
+                {#{{ form_label(form.trailer) }}#}
+                {{ form_widget(form.trailer, {'attr': {
+                    'class': 'form-control',
+                    'placeholder': 'Lien vers la bande annonce'
+
+                }}) }}
+                {{ form_errors(form.trailer) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.annee) }}
+                {{ form_widget(form.annee) }}
+                {{ form_errors(form.annee) }}
+            </div>
+
+            <button class="btn btn-lg btn-primary btn-block">
+                Ajouter
+            </button>
+        {{ form_end(form) }}
+    </div>
 
 {% endblock body %}

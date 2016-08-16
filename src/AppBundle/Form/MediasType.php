@@ -21,7 +21,7 @@ class MediasType extends AbstractType
         $builder
             ->add('type')
             ->add('status')
-            ->add('image', FileType::class)
+            ->add('image', FileType::class, array('label' => 'Affiche du film ou de la série :'))
             ->add('nom', TextType::class)
             ->add('realisateurs', TextType::class)
             ->add('acteurs', TextType::class)
