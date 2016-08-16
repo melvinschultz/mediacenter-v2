@@ -27,7 +27,13 @@ class MediasType extends AbstractType
                     'multiple' => false
                 )
             )
-            ->add('status')
+            ->add('status', ChoiceType::class,
+                array(
+                    'choices' => array('vu' => 'Déjà vu', 'pas_vu' => 'Jamais vu'),
+                    'expanded' => true,
+                    'multiple' => false
+                )
+            )
             ->add('image', FileType::class, array('label' => 'Affiche du film ou de la série :'))
             ->add('nom', TextType::class)
             ->add('realisateurs', TextType::class)

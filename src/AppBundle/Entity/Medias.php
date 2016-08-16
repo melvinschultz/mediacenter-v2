@@ -71,16 +71,16 @@ class Medias
     private $annee;
 
     /**
-     * @var bool
+     * @var string
      *
-     * @ORM\Column(name="type", type="boolean")
+     * @ORM\Column(name="type", type="string", length=255)
      */
     private $type;
 
     /**
-     * @var bool
+     * @var string
      *
-     * @ORM\Column(name="status", type="boolean")
+     * @ORM\Column(name="status", type="string", length=255)
      */
     private $status;
 

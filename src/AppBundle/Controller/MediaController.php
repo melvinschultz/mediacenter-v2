@@ -27,11 +27,13 @@ class MediaController extends Controller
             {
                 $image = $media->getImage();
 
-                $imageNom = strtolower($media->getNom()).'_'.substr(md5(uniqid(rand(0,9))), 0,8).'.'.$image->guessExtension();
+                $imageNom = strtolower(str_replace(' ', '_', $media->getNom())).'_'.substr(md5(uniqid(rand(0,9))), 0,8).'.'.$image->guessExtension();
 
                 $image->move($this->container->getParameter('uploads_directory'), $imageNom);
 
                 $media->setImage($imageNom);
+
+//                dump($media);die;
 
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($media);
@@ -73,11 +75,21 @@ class MediaController extends Controller
     /**
      * @Route("/medias", name="medias")
      */
-    public function showAllAction(Request $request)
+    public function showAllAction()
     {
+        $medias = $this->getDoctrine()
+            ->getRepository('AppBundle:Medias')
+            ->findAll();
+
+        if (!$medias) {
+            throw $this->createNotFoundException(
+                'Aucun film trouvé'
+            );
+        }
+
         // replace this example code with whatever you need
-        return $this->render('@App/medias/medias.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
+        return $this->render('AppBundle:medias:medias.html.twig', array(
+            'medias' => $medias,
         ));
     }
 }

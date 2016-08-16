@@ -1,5 +1,10 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block body %}
-    <h1>PAGE TOUS MES MEDIAS</h1>
+    <h3>Films &amp; Séries</h3>
+
+    {% for media in medias %}
+        {{ media.nom }}
+        {{ media.image }}
+    {% endfor %}
 {% endblock body %}
