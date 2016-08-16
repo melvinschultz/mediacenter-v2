@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d258d0d4-a3e8-4217-98b9-fabc802e292d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Form/MediasType.php" afterPath="$PROJECT_DIR$/src/AppBundle/Form/MediasType.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/medias/add-media.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/medias/add-media.html.twig" />
     </list>
     <ignored path="mediacenter.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -62,8 +59,8 @@
       <file leaf-file-name="MediasType.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/MediasType.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+            <state relative-caret-position="198">
+              <caret line="24" column="77" selection-start-line="24" selection-start-column="77" selection-end-line="24" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -122,10 +119,10 @@
         <option value="$PROJECT_DIR$/app/config/parameters.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Movies.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Controller/MediaController.php" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Form/MediasType.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Entity/Medias.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/medias/add-media.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Form/MediasType.php" />
       </list>
     </option>
   </component>
@@ -506,12 +503,12 @@
       <workItem from="1471196056566" duration="2534000" />
       <workItem from="1471200811745" duration="621000" />
       <workItem from="1471282137083" duration="3158000" />
-      <workItem from="1471364760944" duration="1795000" />
+      <workItem from="1471364760944" duration="2141000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10744000" />
+    <option name="totallyTimeSpent" value="11090000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="25" width="1360" height="739" extended-state="0" />
@@ -908,8 +905,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Form/MediasType.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="29" column="42" selection-start-line="29" selection-start-column="42" selection-end-line="29" selection-end-column="42" />
+        <state relative-caret-position="198">
+          <caret line="24" column="77" selection-start-line="24" selection-start-column="77" selection-end-line="24" selection-end-column="77" />
           <folding />
         </state>
       </provider>
