@@ -1,9 +1,9 @@
 {% extends 'AppBundle::base.html.twig' %}
 
-{% block body %}
+{% block medias %}
     <h3>Films &amp; Séries</h3>
 
     {% for media in medias %}
         <a data-toggle="modal" data-target="#descModal" href="" class="affiche"><img src="uploads/{{ media.image }}" alt="{{ media.nom }}" title="{{ media.nom }}" /></a>
     {% endfor %}
-{% endblock body %}
+{% endblock medias %}

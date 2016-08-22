@@ -1,0 +1,20 @@
+<!-- MODAL -->
+<div id="descModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- inclusion de file_infos.php pour compléter le modal selon la bdd -->
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>{{ film.nom }}</h3>
+            </div>
+            <div class="modal-body">
+                <img src="uploads/{{ film.image }}" alt="{{ film.nom }}" title="{{ film.nom }}" />
+                <div class="description">
+                    <p><strong>Année :</strong> {{ film.annee }} / <strong>Réalisateur :</strong> {{ film.realisateurs }} / <strong>Acteurs :</strong> {{ film.acteurs }}</p>
+                    <p>{{ film.description }}</p>
+                    <a class="bandeAnnonce" href="{{ film.bandeAnnonce }}" target="_blank">Voir la bande annonce</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

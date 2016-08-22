@@ -14,7 +14,17 @@
     {% include('AppBundle::nav.html.twig') %}
 {% endblock navigation %}
 {% block body %}
-{% endblock %}
+<div class="container">
+    {% block medias %}
+    {% endblock medias %}
+    {% block movies %}
+    {% endblock movies %}
+    {% block series %}
+    {% endblock series %}
+    {% block modal %}
+    {% endblock modal %}
+</div>
+{% endblock body %}
 {% block javascripts %}{% endblock %}
 </body>
 </html>
