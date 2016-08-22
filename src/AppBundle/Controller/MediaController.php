@@ -112,4 +112,26 @@ class MediaController extends Controller
             'medias' => $medias,
         ));
     }
+
+    /*public function getEachTypeMediasTotalAction()
+    {
+        $films = $this->getDoctrine()
+            ->getRepository('AppBundle:Medias')
+            ->findBy(array('type' => 'film'));
+
+        $filmsTotal = count($films);
+        dump($filmsTotal);
+
+        $series = $this->getDoctrine()
+            ->getRepository('AppBundle:Medias')
+            ->findBy(array('type' => 'serie'));
+
+        $seriesTotal = count($series);
+        dump($seriesTotal);
+
+        return $this->render('AppBundle::nav.html.twig', array(
+            'filmsTotal' => $filmsTotal,
+            'seriesTotal' => $seriesTotal
+        ));
+    }*/
 }
