@@ -1,9 +1,26 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block medias %}
-    <h3>Films &amp; Séries</h3>
 
-    {% for media in medias %}
-        <a data-toggle="modal" data-target="#descModal" href="" class="affiche"><img src="uploads/{{ media.image }}" alt="{{ media.nom }}" title="{{ media.nom }}" /></a>
-    {% endfor %}
+    {% if path(app.request.get('_route')) == '/medias' %}
+        <h3>Films &amp; Séries</h3>
+    {% elseif path(app.request.get('_route')) == '/movies' %}
+        <h3>Films</h3>
+    {% else %}
+        <h3>Séries</h3>
+    {% endif %}
+
+    {% if films %}
+        {#<p>Films</p>#}
+        {% for film in films %}
+            <a data-toggle="modal" data-target="#descModal" href="" class="affiche"><img src="uploads/{{ film.image }}" alt="{{ film.nom }}" title="{{ film.nom }}" /></a>
+        {% endfor %}
+    {% endif %}
+
+    {% if series %}
+        {#<p>Séries</p>#}
+        {% for serie in series %}
+            <a data-toggle="modal" data-target="#descModal" href="" class="affiche"><img src="uploads/{{ serie.image }}" alt="{{ serie.nom }}" title="{{ serie.nom }}" /></a>
+        {% endfor %}
+    {% endif %}
 {% endblock medias %}

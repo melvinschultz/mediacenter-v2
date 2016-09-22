@@ -57,9 +57,8 @@ class MediaController extends Controller
      */
     public function showAllMoviesAction()
     {
-        $films = $this->getDoctrine()
-            ->getRepository('AppBundle:Medias')
-            ->findBy(array('type' => 'film'));
+        $films = $this->getMoviesAction();
+        $series = null;
 
         if (!$films) {
             throw $this->createNotFoundException(
@@ -68,8 +67,9 @@ class MediaController extends Controller
         }
 
         // replace this example code with whatever you need
-        return $this->render('AppBundle:medias:movies.html.twig', array(
+        return $this->render('AppBundle:medias:medias.html.twig', array(
             'films' => $films,
+            'series' => $series
         ));
     }
 
@@ -78,9 +78,8 @@ class MediaController extends Controller
      */
     public function showAllSeriesAction()
     {
-        $series = $this->getDoctrine()
-            ->getRepository('AppBundle:Medias')
-            ->findBy(array('type' => 'serie'));
+        $series = $this->getSeriesAction();
+        $films = null;
 
         if (!$series) {
             throw $this->createNotFoundException(
@@ -89,8 +88,9 @@ class MediaController extends Controller
         }
 
         // replace this example code with whatever you need
-        return $this->render('AppBundle:medias:series.html.twig', array(
+        return $this->render('AppBundle:medias:medias.html.twig', array(
             'series' => $series,
+            'films' => $films
         ));
     }
 
@@ -99,20 +99,33 @@ class MediaController extends Controller
      */
     public function showAllAction()
     {
-        $medias = $this->getDoctrine()
-            ->getRepository('AppBundle:Medias')
-            ->findAll();
-
-        if (!$medias) {
-            throw $this->createNotFoundException(
-                'Aucun film ou série trouvé(e)'
-            );
-        }
+        $films = $this->getMoviesAction();
+        $series = $this->getSeriesAction();
 
         // replace this example code with whatever you need
         return $this->render('AppBundle:medias:medias.html.twig', array(
-            'medias' => $medias,
+//            'medias' => $medias,
+            'films' => $films,
+            'series' => $series
         ));
+    }
+
+    public function getMoviesAction()
+    {
+        $films = $this->getDoctrine()
+            ->getRepository('AppBundle:Medias')
+            ->findBy(array('type' => 'film'));
+
+        return $films;
+    }
+
+    public function getSeriesAction()
+    {
+        $series = $this->getDoctrine()
+            ->getRepository('AppBundle:Medias')
+            ->findBy(array('type' => 'serie'));
+
+        return $series;
     }
 
     /*public function getEachTypeMediasTotalAction()
