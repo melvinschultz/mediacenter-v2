@@ -1,6 +1,6 @@
-#homepage:
-#    path: /
-#    defaults: { _controller: 'AppBundle:Homepage:index' }
+homepage:
+    path: /
+    defaults: { _controller: 'AppBundle:Homepage:index' }
 #
 #add:
 #    path: /add

@@ -22,6 +22,8 @@ class Medias
     private $id;
 
     /**
+     * Nom du média
+     *
      * @var string
      *
      * @ORM\Column(name="nom", type="string", length=255)
@@ -29,6 +31,8 @@ class Medias
     private $nom;
 
     /**
+     * Affiche du média
+     *
      * @var string
      *
      * @ORM\Column(name="image", type="string", length=255)
@@ -36,6 +40,8 @@ class Medias
     private $image;
 
     /**
+     * Réalisateurs du média
+     *
      * @var string
      *
      * @ORM\Column(name="realisateurs", type="string", length=255)
@@ -43,6 +49,8 @@ class Medias
     private $realisateurs;
 
     /**
+     * Acteurs du média
+     *
      * @var string
      *
      * @ORM\Column(name="acteurs", type="string", length=255)
@@ -50,6 +58,8 @@ class Medias
     private $acteurs;
 
     /**
+     * Description du média
+     *
      * @var string
      *
      * @ORM\Column(name="description", type="text")
@@ -57,6 +67,8 @@ class Medias
     private $description;
 
     /**
+     * Trailer du média
+     *
      * @var string
      *
      * @ORM\Column(name="trailer", type="string", length=255)
@@ -64,6 +76,8 @@ class Medias
     private $trailer;
 
     /**
+     * Année de sortie du média
+     *
      * @var \DateTime
      *
      * @ORM\Column(name="annee", type="date")
@@ -71,6 +85,8 @@ class Medias
     private $annee;
 
     /**
+     * Type de média (film? série?)
+     *
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=255)
@@ -78,6 +94,8 @@ class Medias
     private $type;
 
     /**
+     * Status du média (vu? jamais vu?)
+     *
      * @var string
      *
      * @ORM\Column(name="status", type="string", length=255)
