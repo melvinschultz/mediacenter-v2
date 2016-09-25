@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d258d0d4-a3e8-4217-98b9-fabc802e292d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/uploads/le_seigneur_des_anneaux_1_47f4296f.jpeg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/uploads/tomb_riser_672c7ff0.jpeg" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/web/uploads/star_wars_episode_1_7637f5f7.jpeg" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Controller/MediaController.php" afterPath="$PROJECT_DIR$/src/AppBundle/Controller/MediaController.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AppBundle/Resources/views/medias/medias.html.twig" afterPath="$PROJECT_DIR$/src/AppBundle/Resources/views/medias/medias.html.twig" />
     </list>
     <ignored path="mediacenter.iws" />
@@ -24,29 +28,30 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MediaController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MediaController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/MediaController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-755">
-              <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+            <state relative-caret-position="234">
+              <caret line="121" column="5" selection-start-line="121" selection-start-column="5" selection-end-line="121" selection-end-column="5" />
               <folding>
                 <element signature="e#40#68#0#PHP" expanded="true" />
-                <marker date="1474829756800" expanded="false" signature="1536:1567" ph="@App/medias/add-media" />
-                <marker date="1474829756800" expanded="false" signature="2929:2945" ph="Medias" />
+                <element signature="e#3475#3493#1#PHP" expanded="true" />
+                <marker date="1474838896009" expanded="false" signature="1536:1567" ph="@App/medias/add-media" />
+                <marker date="1474838896009" expanded="false" signature="2929:2945" ph="Medias" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="medias.html.twig" pinned="false" current-in-tab="true">
+      <file leaf-file-name="medias.html.twig" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/medias/medias.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+            <state relative-caret-position="487">
+              <caret line="91" column="20" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="20" />
               <folding>
                 <element signature="e#12#37#0#Twig" expanded="true" />
-                <element signature="e#1258#1265#0#HTML" expanded="true" />
-                <element signature="e#3456#3463#0#HTML" expanded="true" />
+                <element signature="e#1233#1240#0#HTML" expanded="true" />
+                <element signature="e#3765#3772#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -150,10 +155,10 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/config/routing.yml" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/nav.html.twig" />
-        <option value="$PROJECT_DIR$/src/AppBundle/Controller/MediaController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/medias/modal.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/base.html.twig" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/public/css/style.css" />
+        <option value="$PROJECT_DIR$/src/AppBundle/Controller/MediaController.php" />
         <option value="$PROJECT_DIR$/src/AppBundle/Resources/views/medias/medias.html.twig" />
       </list>
     </option>
@@ -228,6 +233,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mediacenter" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mediacenter" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="uploads" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -618,18 +641,18 @@
       <workItem from="1471364760944" duration="6016000" />
       <workItem from="1471865850902" duration="3024000" />
       <workItem from="1474567785470" duration="9694000" />
-      <workItem from="1474826140425" duration="8478000" />
+      <workItem from="1474826140425" duration="11358000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36161000" />
+    <option name="totallyTimeSpent" value="39041000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1366" height="743" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24816984" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24816984" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -670,8 +693,8 @@
           <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
           <folding>
             <element signature="e#12#37#0#Twig" expanded="true" />
-            <element signature="e#1258#1265#0#HTML" expanded="true" />
-            <element signature="e#3456#3463#0#HTML" expanded="true" />
+            <element signature="e#1233#1240#0#HTML" expanded="true" />
+            <element signature="e#3765#3772#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -978,26 +1001,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/HomepageController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/MediaController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-755">
-          <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
-          <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
-            <marker date="1474829756800" expanded="false" signature="1536:1567" ph="@App/medias/add-media" />
-            <marker date="1474829756800" expanded="false" signature="2929:2945" ph="Medias" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/medias/modal.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1029,14 +1032,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/HomepageController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="20" column="1" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/AppBundle/Resources/views/medias/medias.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="23" column="28" selection-start-line="23" selection-start-column="28" selection-end-line="23" selection-end-column="28" />
+        <state relative-caret-position="487">
+          <caret line="91" column="20" selection-start-line="91" selection-start-column="20" selection-end-line="91" selection-end-column="20" />
           <folding>
             <element signature="e#12#37#0#Twig" expanded="true" />
-            <element signature="e#1258#1265#0#HTML" expanded="true" />
-            <element signature="e#3456#3463#0#HTML" expanded="true" />
+            <element signature="e#1233#1240#0#HTML" expanded="true" />
+            <element signature="e#3765#3772#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/AppBundle/Controller/MediaController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="121" column="5" selection-start-line="121" selection-start-column="5" selection-end-line="121" selection-end-column="5" />
+          <folding>
+            <element signature="e#40#68#0#PHP" expanded="true" />
+            <element signature="e#3475#3493#1#PHP" expanded="true" />
+            <marker date="1474838896009" expanded="false" signature="1536:1567" ph="@App/medias/add-media" />
+            <marker date="1474838896009" expanded="false" signature="2929:2945" ph="Medias" />
           </folding>
         </state>
       </provider>

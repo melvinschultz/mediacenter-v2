@@ -10,7 +10,6 @@
     {% endif %}
 
     {% if movies %}
-        {#<p>Films</p>#}
         {% for movie in movies %}
             <a data-toggle="modal" data-target="#descModal{{ movie.id }}" href="" class="affiche">
                 {% if movie.status == "vu" %}
@@ -41,6 +40,10 @@
                                 <p>{{ movie.description }}</p>
                                 <a class="bandeAnnonce" href="{{ movie.trailer }}" target="_blank">Voir la bande annonce</a>
                             </div>
+                            {#<a href="{{ path('delete_media', {'id': movie.id}) }}"><button class="btn btn-danger">Supprimer</button></a>#}
+                        </div>
+                        <div class="modal-footer">
+                            <a href="{{ path('delete_movie', {'id': movie.id}) }}"><button class="btn btn-danger">Supprimer</button></a>
                         </div>
                     </div>
                 </div>
@@ -49,7 +52,6 @@
     {% endif %}
 
     {% if series %}
-        {#<p>Séries</p>#}
         {% for serie in series %}
             <a data-toggle="modal" data-target="#descModal{{ serie.id }}" href="" class="affiche">
                 {% if serie.status == "vu" %}
@@ -80,6 +82,9 @@
                                 <p>{{ serie.description }}</p>
                                 <a class="bandeAnnonce" href="{{ serie.trailer }}" target="_blank">Voir la bande annonce</a>
                             </div>
+                        </div>
+                        <div class="modal-footer">
+                            <a href="{{ path('delete_serie', {'id': serie.id}) }}"><button class="btn btn-danger">Supprimer</button></a>
                         </div>
                     </div>
                 </div>

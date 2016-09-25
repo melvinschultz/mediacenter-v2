@@ -113,6 +113,26 @@ class MediaController extends Controller
         }
     }
 
+    /**
+     * @Route("/movies/{id}/delete", name="delete_movie")
+     * @Route("/series/{id}/delete", name="delete_serie")
+     *
+     */
+    public function deleteMediaAction($id)
+    {
+        $em = $this->getDoctrine()->getEntityManager();
+        $media = $em->getRepository('AppBundle:Medias')->find($id);
+
+        if (!$media) {
+            throw $this->createNotFoundException('Aucun film trouvé');
+        }
+
+        $em->remove($media);
+        $em->flush();
+
+        return $this->redirectToRoute('homepage');
+    }
+
     /*public function getEachTypeMediasTotalAction()
     {
         $films = $this->getDoctrine()
