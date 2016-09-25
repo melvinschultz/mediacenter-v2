@@ -10,10 +10,10 @@
         <h3>Séries</h3>
     {% endif %}
 
-    {% if films %}
+    {% if movies %}
         {#<p>Films</p>#}
-        {% for film in films %}
-            <a data-toggle="modal" data-target="#descModal" href="" class="affiche"><img src="uploads/{{ film.image }}" alt="{{ film.nom }}" title="{{ film.nom }}" /></a>
+        {% for movie in movies %}
+            <a data-toggle="modal" data-target="#descModal" href="" class="affiche"><img src="uploads/{{ movie.image }}" alt="{{ movie.nom }}" title="{{ movie.nom }}" /></a>
         {% endfor %}
     {% endif %}
 

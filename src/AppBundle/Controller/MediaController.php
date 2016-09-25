@@ -51,72 +51,50 @@ class MediaController extends Controller
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
         ));*/
     }
-
-    /**
-     * @Route("/movies", name="movies")
-     */
-    public function showAllMoviesAction()
-    {
-        $films = $this->getMoviesAction();
-        $series = null;
-
-        if (!$films) {
-            throw $this->createNotFoundException(
-                'Aucun film trouvé'
-            );
-        }
-
-        // replace this example code with whatever you need
-        return $this->render('AppBundle:medias:medias.html.twig', array(
-            'films' => $films,
-            'series' => $series
-        ));
-    }
-
-    /**
-     * @Route("/series", name="series")
-     */
-    public function showAllSeriesAction()
-    {
-        $series = $this->getSeriesAction();
-        $films = null;
-
-        if (!$series) {
-            throw $this->createNotFoundException(
-                'Aucune série trouvée'
-            );
-        }
-
-        // replace this example code with whatever you need
-        return $this->render('AppBundle:medias:medias.html.twig', array(
-            'series' => $series,
-            'films' => $films
-        ));
-    }
-
+    
     /**
      * @Route("/medias", name="medias")
+     * @Route("/movies", name="movies")
+     * @Route("/series", name="series")
      */
-    public function showAllAction()
+    public function showAllAction(Request $request)
     {
-        $films = $this->getMoviesAction();
-        $series = $this->getSeriesAction();
+        $path = $request->getPathInfo();
 
-        // replace this example code with whatever you need
+        $movies = null;
+        $series = null;
+
+        if ($path == "/movies") {
+            $movies = $this->getMoviesAction();
+        }
+        elseif ($path == "/series") {
+            $series = $this->getSeriesAction();
+        }
+        else {
+            $movies = $this->getMoviesAction();
+            $series = $this->getSeriesAction();
+        }
+
         return $this->render('AppBundle:medias:medias.html.twig', array(
-//            'medias' => $medias,
-            'films' => $films,
+            'movies' => $movies,
             'series' => $series
         ));
     }
 
     public function getMoviesAction()
     {
-        $films = $this->getDoctrine()
+        $movies = $this->getDoctrine()
             ->getRepository('AppBundle:Medias')
             ->findBy(array('type' => 'film'));
 
-        return $films;
+        if (!$movies) {
+            throw $this->createNotFoundException(
+                'Aucun film trouvé'
+            );
+        }
+        else {
+            return $movies;
+        }
     }
 
     public function getSeriesAction()
@@ -125,7 +103,14 @@ class MediaController extends Controller
             ->getRepository('AppBundle:Medias')
             ->findBy(array('type' => 'serie'));
 
-        return $series;
+        if (!$series) {
+            throw $this->createNotFoundException(
+                'Aucune série trouvée'
+            );
+        }
+        else {
+            return $series;
+        }
     }
 
     /*public function getEachTypeMediasTotalAction()
