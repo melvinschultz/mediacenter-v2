@@ -5,6 +5,12 @@ img {
   width: 150px;
   height: 200px;
 }
+.label {
+  position: absolute;
+  padding: 0.5em 0.6em;
+  margin: -10px 0 0 125px;
+  border-radius: 45%;
+}
 .jumbotron {
   display: flex;
   flex-wrap: wrap;

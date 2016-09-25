@@ -12,12 +12,17 @@
     {% if movies %}
         {#<p>Films</p>#}
         {% for movie in movies %}
-            <a data-toggle="modal" data-target="#descModal" href="" class="affiche">
+            <a data-toggle="modal" data-target="#descModal{{ movie.id }}" href="" class="affiche">
+                {% if movie.status == "vu" %}
+                    <span class="label label-success"><i class="fa fa-eye fa-2x"></i></span>
+                {% else %}
+                    <span class="label label-danger"><i class="fa fa-eye-slash fa-2x"></i></span>
+                {% endif %}
                 <img src="uploads/{{ movie.image }}" alt="{{ movie.nom }}" title="{{ movie.nom }}" />
             </a>
 
             <!-- MODAL -->
-            <div id="descModal" class="modal fade">
+            <div id="descModal{{ movie.id }}" class="modal fade">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <!-- inclusion de file_infos.php pour compléter le modal selon la bdd -->
@@ -31,21 +36,48 @@
                                 <p><strong>Année :</strong> {{ movie.annee|date('Y') }} / <strong>Réalisateur :</strong> {{ movie.realisateurs }} / <strong>Acteurs :</strong> {{ movie.acteurs }}</p>
                                 <p>{{ movie.description }}</p>
                                 <a class="bandeAnnonce" href="{{ movie.trailer }}" target="_blank">Voir la bande annonce</a>
+                                {#{{ movie.status }}#}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         {% endfor %}
     {% endif %}
 
     {% if series %}
         {#<p>Séries</p>#}
         {% for serie in series %}
-            <a data-toggle="modal" data-target="#descModal" href="" class="affiche">
+            <a data-toggle="modal" data-target="#descModal{{ serie.id }}" href="" class="affiche">
+                {% if serie.status == "vu" %}
+                    <span class="label label-success"><i class="fa fa-eye fa-2x"></i></span>
+                {% else %}
+                    <span class="label label-danger"><i class="fa fa-eye-slash fa-2x"></i></span>
+                {% endif %}
                 <img src="uploads/{{ serie.image }}" alt="{{ serie.nom }}" title="{{ serie.nom }}" />
             </a>
+
+            <!-- MODAL -->
+            <div id="descModal{{ serie.id }}" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- inclusion de file_infos.php pour compléter le modal selon la bdd -->
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h3>{{ serie.nom }}</h3>
+                        </div>
+                        <div class="modal-body">
+                            <img src="uploads/{{ serie.image }}" alt="{{ serie.nom }}" title="{{ serie.nom }}" />
+                            <div class="description">
+                                <p><strong>Année :</strong> {{ serie.annee|date('Y') }} / <strong>Réalisateur :</strong> {{ serie.realisateurs }} / <strong>Acteurs :</strong> {{ serie.acteurs }}</p>
+                                <p>{{ serie.description }}</p>
+                                <a class="bandeAnnonce" href="{{ serie.trailer }}" target="_blank">Voir la bande annonce</a>
+                                {#{{ serie.status }}#}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         {% endfor %}
     {% endif %}
 {% endblock medias %}
