@@ -51,7 +51,7 @@ class MediaController extends Controller
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
         ));*/
     }
-    
+
     /**
      * @Route("/medias", name="medias")
      * @Route("/movies", name="movies")

@@ -1,7 +1,6 @@
 {% extends 'AppBundle::base.html.twig' %}
 
 {% block medias %}
-
     {% if path(app.request.get('_route')) == '/medias' %}
         <h3>Films &amp; Séries</h3>
     {% elseif path(app.request.get('_route')) == '/movies' %}
@@ -13,14 +12,40 @@
     {% if movies %}
         {#<p>Films</p>#}
         {% for movie in movies %}
-            <a data-toggle="modal" data-target="#descModal" href="" class="affiche"><img src="uploads/{{ movie.image }}" alt="{{ movie.nom }}" title="{{ movie.nom }}" /></a>
+            <a data-toggle="modal" data-target="#descModal" href="" class="affiche">
+                <img src="uploads/{{ movie.image }}" alt="{{ movie.nom }}" title="{{ movie.nom }}" />
+            </a>
+
+            <!-- MODAL -->
+            <div id="descModal" class="modal fade">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <!-- inclusion de file_infos.php pour compléter le modal selon la bdd -->
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h3>{{ movie.nom }}</h3>
+                        </div>
+                        <div class="modal-body">
+                            <img src="uploads/{{ movie.image }}" alt="{{ movie.nom }}" title="{{ movie.nom }}" />
+                            <div class="description">
+                                <p><strong>Année :</strong> {{ movie.annee|date('Y') }} / <strong>Réalisateur :</strong> {{ movie.realisateurs }} / <strong>Acteurs :</strong> {{ movie.acteurs }}</p>
+                                <p>{{ movie.description }}</p>
+                                <a class="bandeAnnonce" href="{{ movie.trailer }}" target="_blank">Voir la bande annonce</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         {% endfor %}
     {% endif %}
 
     {% if series %}
         {#<p>Séries</p>#}
         {% for serie in series %}
-            <a data-toggle="modal" data-target="#descModal" href="" class="affiche"><img src="uploads/{{ serie.image }}" alt="{{ serie.nom }}" title="{{ serie.nom }}" /></a>
+            <a data-toggle="modal" data-target="#descModal" href="" class="affiche">
+                <img src="uploads/{{ serie.image }}" alt="{{ serie.nom }}" title="{{ serie.nom }}" />
+            </a>
         {% endfor %}
     {% endif %}
 {% endblock medias %}

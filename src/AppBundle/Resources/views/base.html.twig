@@ -25,6 +25,10 @@
     {% endblock modal %}
 </div>
 {% endblock body %}
-{% block javascripts %}{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('bundles/app/js/jquery-2.2.0.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/app/js/mediaCenter.js') }}"></script>
+{% endblock %}
 </body>
 </html>
