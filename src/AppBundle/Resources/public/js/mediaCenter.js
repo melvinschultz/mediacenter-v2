@@ -36,3 +36,18 @@ $('#search').keyup(function () {
         }
    });
 });
+
+var $deleteBtn = $('.delete-btn');
+var $annuleBtn = $('.annule-btn');
+var $footerToggleFirst = $('.footer-toggle-first');
+var $footerToggleSecond = $('.footer-toggle-second');
+
+$deleteBtn.on('click', function () {
+    $footerToggleFirst.addClass('hide');
+    $footerToggleSecond.removeClass('hide');
+});
+
+$annuleBtn.on('click', function () {
+    $footerToggleSecond.addClass('hide');
+    $footerToggleFirst.removeClass('hide');
+});

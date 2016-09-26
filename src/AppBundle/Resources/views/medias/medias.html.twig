@@ -9,86 +9,95 @@
         <h3>Séries</h3>
     {% endif %}
 
-    {% if movies %}
-        {% for movie in movies %}
-            <a data-toggle="modal" data-target="#descModal{{ movie.id }}" href="" class="affiche">
-                {% if movie.status == "vu" %}
-                    <span class="label-global label label-success"><i class="fa fa-eye fa-2x"></i></span>
-                {% else %}
-                    <span class="label-global label label-danger"><i class="fa fa-eye-slash fa-2x"></i></span>
-                {% endif %}
-                <img src="uploads/{{ movie.image }}" alt="{{ movie.nom }}" title="{{ movie.nom }}" />
-            </a>
+    <div class="jumbotron">
+        {% if movies %}
+            {% for movie in movies %}
+                <a data-toggle="modal" data-target="#descModal{{ movie.id }}" href="" class="affiche">
+                    {% if movie.status == "pas_vu" %}
+                        <span class="label-global label label-danger"><i class="fa fa-eye-slash fa-2x"></i></span>
+                    {% endif %}
+                    <img src="uploads/{{ movie.image }}" alt="{{ movie.nom }}" title="{{ movie.nom }}" />
+                </a>
 
-            <!-- MODAL movie -->
-            <div id="descModal{{ movie.id }}" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h3>{{ movie.nom }}</h3>
-                            {% if movie.status == "vu" %}
-                                <span class="label label-success">Déjà vu <i class="fa fa-eye"></i></span>
-                            {% else %}
-                                <span class="label label-danger">Jamais vu <i class="fa fa-eye-slash"></i></span>
-                            {% endif %}
-                        </div>
-                        <div class="modal-body">
-                            <img src="uploads/{{ movie.image }}" alt="{{ movie.nom }}" title="{{ movie.nom }}" />
-                            <div class="description">
-                                <p><strong>Année :</strong> {{ movie.annee|date('Y') }} / <strong>Réalisateur :</strong> {{ movie.realisateurs }} / <strong>Acteurs :</strong> {{ movie.acteurs }}</p>
-                                <p>{{ movie.description }}</p>
-                                <a class="bandeAnnonce" href="{{ movie.trailer }}" target="_blank">Voir la bande annonce</a>
+                <!-- MODAL movie -->
+                <div id="descModal{{ movie.id }}" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h3>{{ movie.nom }}</h3>
+                                {% if movie.status == "vu" %}
+                                    <span class="label label-success">Déjà vu <i class="fa fa-eye"></i></span>
+                                {% else %}
+                                    <span class="label label-danger">Jamais vu <i class="fa fa-eye-slash"></i></span>
+                                {% endif %}
                             </div>
-                            {#<a href="{{ path('delete_media', {'id': movie.id}) }}"><button class="btn btn-danger">Supprimer</button></a>#}
-                        </div>
-                        <div class="modal-footer">
-                            <a href="{{ path('delete_movie', {'id': movie.id}) }}"><button class="btn btn-danger">Supprimer</button></a>
+                            <div class="modal-body">
+                                <img src="uploads/{{ movie.image }}" alt="{{ movie.nom }}" title="{{ movie.nom }}" />
+                                <div class="description">
+                                    <p><strong>Année :</strong> {{ movie.annee|date('Y') }} / <strong>Réalisateur :</strong> {{ movie.realisateurs }} / <strong>Acteurs :</strong> {{ movie.acteurs }}</p>
+                                    <p>{{ movie.description }}</p>
+                                    <a class="bandeAnnonce" href="{{ movie.trailer }}" target="_blank">Voir la bande annonce</a>
+                                </div>
+                            </div>
+                            <div class="modal-footer footer-toggle-first">
+                                <button class="btn btn-primary">Modifier</button>
+                                <button class="btn btn-danger delete-btn">Supprimer</button>
+                            </div>
+                            <div class="modal-footer footer-toggle-second hide">
+                                <p>Êtes-vous sûr de vouloir supprimer <strong>{{ movie.nom }}</strong> ?</p>
+                                <a href="{{ path('delete_movie', {'id': movie.id}) }}"><button class="btn btn-danger">Oui</button></a>
+                                <button class="btn btn-primary annule-btn">Annuler</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
-    {% endif %}
+            {% endfor %}
+        {% endif %}
 
-    {% if series %}
-        {% for serie in series %}
-            <a data-toggle="modal" data-target="#descModal{{ serie.id }}" href="" class="affiche">
-                {% if serie.status == "vu" %}
-                    <span class="label-global label label-success"><i class="fa fa-eye fa-2x"></i></span>
-                {% else %}
-                    <span class="label-global label label-danger"><i class="fa fa-eye-slash fa-2x"></i></span>
-                {% endif %}
-                <img src="uploads/{{ serie.image }}" alt="{{ serie.nom }}" title="{{ serie.nom }}" />
-            </a>
+        {% if series %}
+            {% for serie in series %}
+                <a data-toggle="modal" data-target="#descModal{{ serie.id }}" href="" class="affiche">
+                    {% if serie.status == "pas_vu" %}
+                        <span class="label-global label label-danger"><i class="fa fa-eye-slash fa-2x"></i></span>
+                    {% endif %}
+                    <img src="uploads/{{ serie.image }}" alt="{{ serie.nom }}" title="{{ serie.nom }}" />
+                </a>
 
-            <!-- MODAL serie -->
-            <div id="descModal{{ serie.id }}" class="modal fade">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h3>{{ serie.nom }}</h3>
-                            {% if serie.status == "vu" %}
-                                <span class="label label-success">Déjà vu / En cours <i class="fa fa-eye"></i></span>
-                            {% else %}
-                                <span class="label label-danger">Jamais vu <i class="fa fa-eye-slash"></i></span>
-                            {% endif %}
-                        </div>
-                        <div class="modal-body">
-                            <img src="uploads/{{ serie.image }}" alt="{{ serie.nom }}" title="{{ serie.nom }}" />
-                            <div class="description">
-                                <p><strong>Année :</strong> {{ serie.annee|date('Y') }} / <strong>Réalisateur :</strong> {{ serie.realisateurs }} / <strong>Acteurs :</strong> {{ serie.acteurs }}</p>
-                                <p>{{ serie.description }}</p>
-                                <a class="bandeAnnonce" href="{{ serie.trailer }}" target="_blank">Voir la bande annonce</a>
+                <!-- MODAL serie -->
+                <div id="descModal{{ serie.id }}" class="modal fade">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h3>{{ serie.nom }}</h3>
+                                {% if serie.status == "vu" %}
+                                    <span class="label label-success">Déjà vu / En cours <i class="fa fa-eye"></i></span>
+                                {% else %}
+                                    <span class="label label-danger">Jamais vu <i class="fa fa-eye-slash"></i></span>
+                                {% endif %}
                             </div>
-                        </div>
-                        <div class="modal-footer">
-                            <a href="{{ path('delete_serie', {'id': serie.id}) }}"><button class="btn btn-danger">Supprimer</button></a>
+                            <div class="modal-body">
+                                <img src="uploads/{{ serie.image }}" alt="{{ serie.nom }}" title="{{ serie.nom }}" />
+                                <div class="description">
+                                    <p><strong>Année :</strong> {{ serie.annee|date('Y') }} / <strong>Réalisateur :</strong> {{ serie.realisateurs }} / <strong>Acteurs :</strong> {{ serie.acteurs }}</p>
+                                    <p>{{ serie.description }}</p>
+                                    <a class="bandeAnnonce" href="{{ serie.trailer }}" target="_blank">Voir la bande annonce</a>
+                                </div>
+                            </div>
+                            <div class="modal-footer footer-toggle-first">
+                                <button class="btn btn-primary">Modifier</button>
+                                <button class="btn btn-danger delete-btn">Supprimer</button>
+                            </div>
+                            <div class="modal-footer footer-toggle-second hide">
+                                <p>Êtes-vous sûr de vouloir supprimer <strong>{{ serie.nom }}</strong> ?</p>
+                                <a href="{{ path('delete_serie', {'id': serie.id}) }}"><button class="btn btn-danger">Oui</button></a>
+                                <button class="btn btn-primary annule-btn">Annuler</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        {% endfor %}
-    {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
 {% endblock medias %}
