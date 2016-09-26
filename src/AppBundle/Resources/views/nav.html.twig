@@ -11,10 +11,10 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="{{ path('medias') }}">Tous</a></li>
-                <li><a href="{{ path('movies') }}">Mes films <span class="badge">1{#{{ filmsTotal }}#}</span></a></li>
-                <li><a href="{{ path('series') }}">Mes séries <span class="badge">0{#{{ seriesTotal }}#}</span></a></li>
-                <li><a href="{{ path('add') }}">Ajouter</a></li>
+                <li><a href="{{ path('medias') }}">{{ 'medias.all'|trans }}</a></li>
+                <li><a href="{{ path('movies') }}">{{ 'medias.movies'|trans }} <span class="badge">1{#{{ filmsTotal }}#}</span></a></li>
+                <li><a href="{{ path('series') }}">{{ 'medias.tv_shows'|trans }} <span class="badge">0{#{{ seriesTotal }}#}</span></a></li>
+                <li><a href="{{ path('add') }}">{{ 'add'|trans }}</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

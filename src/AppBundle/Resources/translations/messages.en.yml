@@ -1,0 +1,17 @@
+yes: Yes
+cancel: Cancel
+edit: Edit
+delete: Delete
+add: Add
+are_you_sure_you_want_to_delete: Are you sure you want to delete
+medias:
+    all: All
+    movies: Movies
+    tv_shows: TV Shows
+    already_seen: Already seen
+    never_seen: Never seen
+    watching: Watching
+    watch_trailer: Watch trailer
+    year: Year
+    actors: Actors
+    filmmakers: Filmmakers

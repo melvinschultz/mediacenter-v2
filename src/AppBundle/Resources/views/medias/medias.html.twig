@@ -2,11 +2,11 @@
 
 {% block medias %}
     {% if path(app.request.get('_route')) == '/medias' %}
-        <h3>Films &amp; Séries</h3>
+        <h3>{{ 'medias.movies'|trans }} &amp; {{ 'medias.tv_shows'|trans }}</h3>
     {% elseif path(app.request.get('_route')) == '/movies' %}
-        <h3>Films</h3>
+        <h3>{{ 'medias.movies'|trans }}</h3>
     {% else %}
-        <h3>Séries</h3>
+        <h3>{{ 'medias.tv_shows'|trans }}</h3>
     {% endif %}
 
     <div class="jumbotron">
@@ -27,27 +27,27 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                 <h3>{{ movie.nom }}</h3>
                                 {% if movie.status == "vu" %}
-                                    <span class="label label-success">Déjà vu <i class="fa fa-eye"></i></span>
+                                    <span class="label label-success">{{ 'medias.already_seen'|trans }} <i class="fa fa-eye"></i></span>
                                 {% else %}
-                                    <span class="label label-danger">Jamais vu <i class="fa fa-eye-slash"></i></span>
+                                    <span class="label label-danger">{{ 'medias.never_seen'|trans }} <i class="fa fa-eye-slash"></i></span>
                                 {% endif %}
                             </div>
                             <div class="modal-body">
                                 <img src="uploads/{{ movie.image }}" alt="{{ movie.nom }}" title="{{ movie.nom }}" />
                                 <div class="description">
-                                    <p><strong>Année :</strong> {{ movie.annee|date('Y') }} / <strong>Réalisateur :</strong> {{ movie.realisateurs }} / <strong>Acteurs :</strong> {{ movie.acteurs }}</p>
+                                    <p><strong>{{ 'medias.year'|trans }} :</strong> {{ movie.annee|date('Y') }} / <strong>{{ 'medias.filmmakers'|trans }} :</strong> {{ movie.realisateurs }} / <strong>{{ 'medias.actors'|trans }} :</strong> {{ movie.acteurs }}</p>
                                     <p>{{ movie.description }}</p>
-                                    <a class="bandeAnnonce" href="{{ movie.trailer }}" target="_blank">Voir la bande annonce</a>
+                                    <a class="bandeAnnonce" href="{{ movie.trailer }}" target="_blank">{{ 'medias.watch_trailer'|trans }}</a>
                                 </div>
                             </div>
                             <div class="modal-footer footer-toggle-first">
-                                <button class="btn btn-primary">Modifier</button>
-                                <button class="btn btn-danger delete-btn">Supprimer</button>
+                                <button class="btn btn-primary">{{ 'edit'|trans }}</button>
+                                <button class="btn btn-danger delete-btn">{{ 'delete'|trans }}</button>
                             </div>
                             <div class="modal-footer footer-toggle-second hide">
-                                <p>Êtes-vous sûr de vouloir supprimer <strong>{{ movie.nom }}</strong> ?</p>
-                                <a href="{{ path('delete_movie', {'id': movie.id}) }}"><button class="btn btn-danger">Oui</button></a>
-                                <button class="btn btn-primary annule-btn">Annuler</button>
+                                <p>{{ 'are_you_sure_you_want_to_delete'|trans }} <strong>{{ movie.nom }}</strong> ?</p>
+                                <a href="{{ path('delete_movie', {'id': movie.id}) }}"><button class="btn btn-danger">{{ 'yes'|trans }}</button></a>
+                                <button class="btn btn-primary annule-btn">{{ 'cancel'|trans }}</button>
                             </div>
                         </div>
                     </div>
@@ -72,27 +72,27 @@
                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                                 <h3>{{ serie.nom }}</h3>
                                 {% if serie.status == "vu" %}
-                                    <span class="label label-success">Déjà vu / En cours <i class="fa fa-eye"></i></span>
+                                    <span class="label label-success">{{ 'medias.already_seen'|trans }} / {{ 'medias.watching'|trans }} <i class="fa fa-eye"></i></span>
                                 {% else %}
-                                    <span class="label label-danger">Jamais vu <i class="fa fa-eye-slash"></i></span>
+                                    <span class="label label-danger">{{ 'medias.never_seen'|trans }} <i class="fa fa-eye-slash"></i></span>
                                 {% endif %}
                             </div>
                             <div class="modal-body">
                                 <img src="uploads/{{ serie.image }}" alt="{{ serie.nom }}" title="{{ serie.nom }}" />
                                 <div class="description">
-                                    <p><strong>Année :</strong> {{ serie.annee|date('Y') }} / <strong>Réalisateur :</strong> {{ serie.realisateurs }} / <strong>Acteurs :</strong> {{ serie.acteurs }}</p>
+                                    <p><strong>{{ 'medias.year'|trans }} :</strong> {{ serie.annee|date('Y') }} / <strong>{{ 'medias.filmmakers'|trans }} :</strong> {{ serie.realisateurs }} / <strong>{{ 'medias.actors'|trans }} :</strong> {{ serie.acteurs }}</p>
                                     <p>{{ serie.description }}</p>
-                                    <a class="bandeAnnonce" href="{{ serie.trailer }}" target="_blank">Voir la bande annonce</a>
+                                    <a class="bandeAnnonce" href="{{ serie.trailer }}" target="_blank">{{ 'medias.watch_trailer'|trans }}</a>
                                 </div>
                             </div>
                             <div class="modal-footer footer-toggle-first">
-                                <button class="btn btn-primary">Modifier</button>
-                                <button class="btn btn-danger delete-btn">Supprimer</button>
+                                <button class="btn btn-primary">{{ 'edit'|trans }}</button>
+                                <button class="btn btn-danger delete-btn">{{ 'delete'|trans }}</button>
                             </div>
                             <div class="modal-footer footer-toggle-second hide">
-                                <p>Êtes-vous sûr de vouloir supprimer <strong>{{ serie.nom }}</strong> ?</p>
-                                <a href="{{ path('delete_serie', {'id': serie.id}) }}"><button class="btn btn-danger">Oui</button></a>
-                                <button class="btn btn-primary annule-btn">Annuler</button>
+                                <p>{{ 'are_you_sure_you_want_to_delete'|trans }} <strong>{{ serie.nom }}</strong> ?</p>
+                                <a href="{{ path('delete_serie', {'id': serie.id}) }}"><button class="btn btn-danger">{{ 'yes'|trans }}</button></a>
+                                <button class="btn btn-primary annule-btn">{{ 'cancel'|trans }}</button>
                             </div>
                         </div>
                     </div>

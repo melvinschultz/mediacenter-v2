@@ -1,0 +1,17 @@
+yes: Oui
+cancel: Annuler
+edit: Modifier
+delete: Supprimer
+add: Ajouter
+are_you_sure_you_want_to_delete: Êtes-vous sûr de vouloir supprimer
+medias:
+    all: Tous
+    movies: Films
+    tv_shows: Séries
+    already_seen: Déjà vu
+    never_seen: Jamais vu
+    watching: En cours
+    watch_trailer: Voir la bande annonce
+    year: Année
+    actors: Acteurs
+    filmmakers: Réalisateurs
