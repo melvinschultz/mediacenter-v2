@@ -51,3 +51,5 @@ $annuleBtn.on('click', function () {
     $footerToggleSecond.addClass('hide');
     $footerToggleFirst.removeClass('hide');
 });
+
+$('.label-global[data-toggle="tooltip"]').tooltip();

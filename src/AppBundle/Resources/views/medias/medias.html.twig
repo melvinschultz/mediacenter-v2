@@ -14,7 +14,7 @@
             {% for movie in movies %}
                 <a data-toggle="modal" data-target="#descModal{{ movie.id }}" href="" class="affiche">
                     {% if movie.status == "pas_vu" %}
-                        <span class="label-global label label-danger"><i class="fa fa-eye-slash fa-2x"></i></span>
+                        <span class="label-global label label-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ 'medias.never_seen'|trans }}"><i class="fa fa-eye-slash fa-2x"></i></span>
                     {% endif %}
                     <img src="uploads/{{ movie.image }}" alt="{{ movie.nom }}" title="{{ movie.nom }}" />
                 </a>
