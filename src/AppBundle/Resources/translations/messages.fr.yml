@@ -3,7 +3,7 @@ cancel: Annuler
 edit: Modifier
 delete: Supprimer
 add: Ajouter
-are_you_sure_you_want_to_delete: Êtes-vous sûr de vouloir supprimer
+sure_want_delete: Êtes-vous sûr de vouloir supprimer
 medias:
     all: Tous
     movies: Films
@@ -14,4 +14,15 @@ medias:
     watch_trailer: Voir la bande annonce
     year: Année
     actors: Acteurs
+    filmmaker: Réalisateur
     filmmakers: Réalisateurs
+    form:
+        add_media: Ajouter un film ou une série
+        movie: Film
+        tv_show: Série
+        media_poster: Affiche du film ou de la série
+        title: Titre du film ou de la série
+        filmmakers: Réalisateur(s)
+        actors: Acteur(s)
+        description: Description
+        trailer_link: Lien vers la bande annonce

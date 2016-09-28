@@ -4,7 +4,7 @@
 
     <div class="container container-body">
 
-        <h3>Ajouter un film ou une série</h3>
+        <h3>{{ 'medias.form.add_media'|trans }}</h3>
 
         {{ form_start(form) }}
             <div class="form-group">
@@ -29,7 +29,7 @@
                 {#{{ form_label(form.nom) }}#}
                 {{ form_widget(form.nom, {'attr': {
                     'class': 'form-control',
-                    'placeholder': 'Titre du film ou de la série'
+                    'placeholder': 'medias.form.title'
                 }}) }}
                 {{ form_errors(form.nom) }}
             </div>
@@ -38,7 +38,7 @@
                 {#{{ form_label(form.realisateurs) }}#}
                 {{ form_widget(form.realisateurs, {'attr': {
                     'class': 'form-control',
-                    'placeholder': 'Réalisateur(s)'
+                    'placeholder': 'medias.form.filmmakers'
 
                 }}) }}
                 {{ form_errors(form.realisateurs) }}
@@ -48,7 +48,7 @@
                 {#{{ form_label(form.acteurs) }}#}
                 {{ form_widget(form.acteurs, {'attr': {
                     'class': 'form-control',
-                    'placeholder': 'Acteur(s)'
+                    'placeholder': 'medias.form.actors'
 
                 }}) }}
                 {{ form_errors(form.acteurs) }}
@@ -58,7 +58,7 @@
                 {#{{ form_label(form.description) }}#}
                 {{ form_widget(form.description, {'attr': {
                     'class': 'form-control',
-                    'placeholder': 'Description'
+                    'placeholder': 'medias.form.description'
 
                 }}) }}
                 {{ form_errors(form.description) }}
@@ -68,7 +68,7 @@
                 {#{{ form_label(form.trailer) }}#}
                 {{ form_widget(form.trailer, {'attr': {
                     'class': 'form-control',
-                    'placeholder': 'Lien vers la bande annonce'
+                    'placeholder': 'medias.form.trailer_link'
 
                 }}) }}
                 {{ form_errors(form.trailer) }}
@@ -81,7 +81,7 @@
             </div>
 
             <button class="btn btn-lg btn-primary btn-block">
-                Ajouter
+                {{ 'add'|trans }}
             </button>
         {{ form_end(form) }}
     </div>

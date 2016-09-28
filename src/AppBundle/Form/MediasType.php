@@ -19,28 +19,38 @@ class MediasType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        // a déplacer
+        $years = [];
+        for($i = 1950;$i <= 2020;$i++) {
+            $years[$i] = $i;
+        }
+
         $builder
             ->add('type', ChoiceType::class,
                 array(
-                    'choices' => array('film' => 'Film', 'serie' => 'Série'),
+                    'choices' => array('film' => 'medias.form.movie', 'serie' => 'medias.form.tv_show'),
                     'expanded' => true,
                     'multiple' => false
                 )
             )
             ->add('status', ChoiceType::class,
                 array(
-                    'choices' => array('vu' => 'Déjà vu', 'pas_vu' => 'Jamais vu'),
+                    'choices' => array('vu' => 'medias.already_seen', 'pas_vu' => 'medias.never_seen'),
                     'expanded' => true,
                     'multiple' => false
                 )
             )
-            ->add('image', FileType::class, array('label' => 'Affiche du film ou de la série :'))
+            ->add('image', FileType::class, array('label' => 'medias.form.media_poster'))
             ->add('nom', TextType::class)
             ->add('realisateurs', TextType::class)
             ->add('acteurs', TextType::class)
             ->add('description', TextareaType::class)
             ->add('trailer', TextType::class)
-            ->add('annee', DateType::class)
+            ->add('annee', DateType::class, array(
+                'widget' => 'choice',
+                'years' => $years,
+                'label' => 'medias.year'
+            ))
         ;
     }
     

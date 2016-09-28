@@ -45,7 +45,7 @@
                                 <button class="btn btn-danger delete-btn">{{ 'delete'|trans }}</button>
                             </div>
                             <div class="modal-footer footer-toggle-second hide">
-                                <p>{{ 'are_you_sure_you_want_to_delete'|trans }} <strong>{{ movie.nom }}</strong> ?</p>
+                                <p>{{ 'sure_want_delete'|trans }} <strong>{{ movie.nom }}</strong> ?</p>
                                 <a href="{{ path('delete_movie', {'id': movie.id}) }}"><button class="btn btn-danger">{{ 'yes'|trans }}</button></a>
                                 <button class="btn btn-primary annule-btn">{{ 'cancel'|trans }}</button>
                             </div>
@@ -90,7 +90,7 @@
                                 <button class="btn btn-danger delete-btn">{{ 'delete'|trans }}</button>
                             </div>
                             <div class="modal-footer footer-toggle-second hide">
-                                <p>{{ 'are_you_sure_you_want_to_delete'|trans }} <strong>{{ serie.nom }}</strong> ?</p>
+                                <p>{{ 'sure_want_delete'|trans }} <strong>{{ serie.nom }}</strong> ?</p>
                                 <a href="{{ path('delete_serie', {'id': serie.id}) }}"><button class="btn btn-danger">{{ 'yes'|trans }}</button></a>
                                 <button class="btn btn-primary annule-btn">{{ 'cancel'|trans }}</button>
                             </div>

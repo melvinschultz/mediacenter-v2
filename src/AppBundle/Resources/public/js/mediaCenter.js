@@ -53,3 +53,11 @@ $annuleBtn.on('click', function () {
 });
 
 $('.label-global[data-toggle="tooltip"]').tooltip();
+
+$('#medias_annee_month').hide();
+$('#medias_annee_day').hide();
+
+    /*
+    $('.js-datepicker').datepicker({
+        format: 'yyyy-mm-dd'
+    });*/

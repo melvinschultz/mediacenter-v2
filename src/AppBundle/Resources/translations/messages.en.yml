@@ -3,7 +3,7 @@ cancel: Cancel
 edit: Edit
 delete: Delete
 add: Add
-are_you_sure_you_want_to_delete: Are you sure you want to delete
+sure_want_delete: Are you sure you want to delete
 medias:
     all: All
     movies: Movies
@@ -14,4 +14,15 @@ medias:
     watch_trailer: Watch trailer
     year: Year
     actors: Actors
-    filmmakers: Filmmakers
+    filmmaker: Réalisateur
+    filmmakers: Réalisateurs
+    form:
+        add_media: Add a movie or a tv show
+        movie: Movie
+        tv_show: TV Show
+        media_poster: Movie or tv show poster
+        title: Movie or tv show title
+        filmmakers: Filmmaker(s)
+        actors: Actor(s)
+        description: Description
+        trailer_link: Link to trailer
