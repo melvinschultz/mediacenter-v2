@@ -18,6 +18,7 @@ medias:
     filmmakers: Réalisateurs
     form:
         add_media: Ajouter un film ou une série
+        update: Modifier
         movie: Film
         tv_show: Série
         media_poster: Affiche du film ou de la série

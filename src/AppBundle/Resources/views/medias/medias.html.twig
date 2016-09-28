@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer footer-toggle-first">
-                                <button class="btn btn-primary">{{ 'edit'|trans }}</button>
+                                <a href="{{ path('update_movie', {'id': movie.id}) }}"><button class="btn btn-primary">{{ 'edit'|trans }}</button></a>
                                 <button class="btn btn-danger delete-btn">{{ 'delete'|trans }}</button>
                             </div>
                             <div class="modal-footer footer-toggle-second hide">
@@ -86,7 +86,7 @@
                                 </div>
                             </div>
                             <div class="modal-footer footer-toggle-first">
-                                <button class="btn btn-primary">{{ 'edit'|trans }}</button>
+                                <a href="{{ path('update_serie', {'id': serie.id}) }}"><button class="btn btn-primary">{{ 'edit'|trans }}</button></a>
                                 <button class="btn btn-danger delete-btn">{{ 'delete'|trans }}</button>
                             </div>
                             <div class="modal-footer footer-toggle-second hide">

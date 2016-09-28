@@ -7,11 +7,10 @@ use AppBundle\Form\MediasType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class MediaController extends Controller
 {
-
-
     /**
      * @Route("/add", name="add")
      */
@@ -50,6 +49,60 @@ class MediaController extends Controller
         return $this->render('@App/medias/add-media.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
         ));*/
+    }
+
+    /**
+     * @Route("/movie/{id}/update", name="update_movie")
+     * @Route("/serie/{id}/update", name="update_serie")
+     *
+     * @param $request
+     * @param $id
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function updateAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $media = $em->getRepository('AppBundle:Medias')->find($id);
+
+        if (!$media) {
+            throw $this->createNotFoundException(
+                'No media found for id '.$id
+            );
+        }
+
+        $mediaNom = $media->getNom();
+
+        $form = $this->createForm(new MediasType(), $media);
+
+        dump($form);
+
+        $form->handleRequest($request);
+
+        if ($request->getMethod() == 'POST')
+        {
+            if ($form->isSubmitted() && $form->isValid())
+            {
+                $image = $media->getImage();
+
+                $imageNom = strtolower(str_replace(' ', '_', $media->getNom())).'_'.substr(md5(uniqid(rand(0,9))), 0,8).'.'.$image->guessExtension();
+
+                $image->move($this->container->getParameter('uploads_directory'), $imageNom);
+
+                $media->setImage($imageNom);
+
+//                dump($media);die;
+
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($media);
+                $em->flush();
+            }
+        }
+
+        return $this->render('AppBundle:medias:update-media.html.twig', array(
+            'form' => $form->createView(),
+            'nom' => $mediaNom
+        ));
     }
 
     /**

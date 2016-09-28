@@ -18,6 +18,7 @@ medias:
     filmmakers: Réalisateurs
     form:
         add_media: Add a movie or a tv show
+        update: Update
         movie: Movie
         tv_show: TV Show
         media_poster: Movie or tv show poster

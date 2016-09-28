@@ -40,7 +40,10 @@ class MediasType extends AbstractType
                     'multiple' => false
                 )
             )
-            ->add('image', FileType::class, array('label' => 'medias.form.media_poster'))
+            ->add('image', FileType::class, array(
+                'label' => 'medias.form.media_poster',
+                'data_class' => null
+            ))
             ->add('nom', TextType::class)
             ->add('realisateurs', TextType::class)
             ->add('acteurs', TextType::class)
