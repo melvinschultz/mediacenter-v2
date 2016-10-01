@@ -11,8 +11,14 @@ use Symfony\Component\HttpFoundation\Response;
 
 class MediaController extends Controller
 {
+    protected $isExist;
+
     /**
      * @Route("/add", name="add")
+     *
+     * @param Request $request
+     * @return Response
+     * @throws \Exception
      */
     public function addAction(Request $request)
     {
@@ -26,29 +32,34 @@ class MediaController extends Controller
         {
             if ($form->isSubmitted() && $form->isValid())
             {
-                $image = $media->getImage();
+                $mediasHelper = $this->container->get('mediacenter.medias_helper');
 
-                $imageNom = strtolower(str_replace(' ', '_', $media->getNom())).'_'.substr(md5(uniqid(rand(0,9))), 0,8).'.'.$image->guessExtension();
+                $nomNewMedia = $form->get('nom')->getNormData();
 
-                $image->move($this->container->getParameter('uploads_directory'), $imageNom);
+                $isExist = $mediasHelper->testIfMediaAlreadyExist($nomNewMedia);
 
-                $media->setImage($imageNom);
+                if ($isExist) {
+                    $errorMsg = $this->get('translator')->trans('medias.form.is_exist');
+                    throw new \Exception($errorMsg);
+                }
+                else {
+                    $image = $media->getImage();
 
-//                dump($media);die;
+                    $imageNom = strtolower(str_replace(' ', '_', $media->getNom())).'_'.substr(md5(uniqid(rand(0,9))), 0,8).'.'.$image->guessExtension();
+                    $image->move($this->container->getParameter('uploads_directory'), $imageNom);
 
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($media);
-                $em->flush();
+                    $media->setImage($imageNom);
+
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist($media);
+                    $em->flush();
+                }
             }
         }
 
         // On passe la méthode createView() du formulaire à la vue
         // afin qu'elle puisse afficher le formulaire toute seule
         return $this->render('AppBundle:medias:add-media.html.twig', array('form' => $form->createView(),));
-        /*// replace this example code with whatever you need
-        return $this->render('@App/medias/add-media.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-        ));*/
     }
 
     /**
@@ -109,6 +120,10 @@ class MediaController extends Controller
      * @Route("/medias", name="medias")
      * @Route("/movies", name="movies")
      * @Route("/series", name="series")
+     *
+     * @param Request $request
+     *
+     * @return Response
      */
     public function showAllAction(Request $request)
     {
@@ -170,6 +185,9 @@ class MediaController extends Controller
      * @Route("/movies/{id}/delete", name="delete_movie")
      * @Route("/series/{id}/delete", name="delete_serie")
      *
+     * @param $id
+     *
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function deleteMediaAction($id)
     {

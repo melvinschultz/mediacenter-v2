@@ -27,3 +27,4 @@ medias:
         actors: Actor(s)
         description: Description
         trailer_link: Link to trailer
+        is_exist: This media already exists in database, impossible to add it

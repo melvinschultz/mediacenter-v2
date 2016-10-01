@@ -1,0 +1,4 @@
+services:
+    mediacenter.medias_helper:
+         class: AppBundle\Helper\MediasHelper
+         arguments: [@doctrine.orm.entity_manager]
