@@ -16,6 +16,8 @@ medias:
     actors: Acteurs
     filmmaker: Réalisateur
     filmmakers: Réalisateurs
+    no_movie: Aucun film trouvé
+    no_tv_show: Aucune série trouvée
     form:
         add_media: Ajouter un film ou une série
         update: Modifier
@@ -27,4 +29,4 @@ medias:
         actors: Acteur(s)
         description: Description
         trailer_link: Lien vers la bande annonce
-        is_exist: Ce média existe déjà dans la base de données, impossible de l'ajouté
+        is_exist: Ce média existe déjà dans la base de données, impossible de l'ajouter

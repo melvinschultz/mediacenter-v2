@@ -16,6 +16,8 @@ medias:
     actors: Actors
     filmmaker: Réalisateur
     filmmakers: Réalisateurs
+    no_movie: No movie found
+    no_tv_show: No TV show found
     form:
         add_media: Add a movie or a tv show
         update: Update

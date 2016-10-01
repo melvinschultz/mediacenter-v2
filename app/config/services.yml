@@ -9,4 +9,4 @@ services:
 #        arguments: ["@another_service_name", "plain_value", "%parameter_name%"]
     mediacenter.medias_helper:
          class: AppBundle\Helper\MediasHelper
-         arguments: [@doctrine.orm.entity_manager]
+         arguments: ['@doctrine.orm.entity_manager', '@translator.default']

@@ -11,8 +11,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 class MediaController extends Controller
 {
-    protected $isExist;
-
     /**
      * @Route("/add", name="add")
      *
@@ -129,56 +127,26 @@ class MediaController extends Controller
     {
         $path = $request->getPathInfo();
 
+        $mediasHelper = $this->get('mediacenter.medias_helper');
+
         $movies = null;
         $series = null;
 
         if ($path == "/movies") {
-            $movies = $this->getMoviesAction();
+            $movies = $mediasHelper->getMovies();
         }
         elseif ($path == "/series") {
-            $series = $this->getSeriesAction();
+            $series = $mediasHelper->getSeries();
         }
         else {
-            $movies = $this->getMoviesAction();
-            $series = $this->getSeriesAction();
+            $movies = $mediasHelper->getMovies();
+            $series = $mediasHelper->getSeries();
         }
 
         return $this->render('AppBundle:medias:medias.html.twig', array(
             'movies' => $movies,
             'series' => $series
         ));
-    }
-
-    public function getMoviesAction()
-    {
-        $movies = $this->getDoctrine()
-            ->getRepository('AppBundle:Medias')
-            ->findBy(array('type' => 'film'));
-
-        if (!$movies) {
-            throw $this->createNotFoundException(
-                'Aucun film trouvé'
-            );
-        }
-        else {
-            return $movies;
-        }
-    }
-
-    public function getSeriesAction()
-    {
-        $series = $this->getDoctrine()
-            ->getRepository('AppBundle:Medias')
-            ->findBy(array('type' => 'serie'));
-
-        if (!$series) {
-            throw $this->createNotFoundException(
-                'Aucune série trouvée'
-            );
-        }
-        else {
-            return $series;
-        }
     }
 
     /**
@@ -203,26 +171,4 @@ class MediaController extends Controller
 
         return $this->redirectToRoute('homepage');
     }
-
-    /*public function getEachTypeMediasTotalAction()
-    {
-        $films = $this->getDoctrine()
-            ->getRepository('AppBundle:Medias')
-            ->findBy(array('type' => 'film'));
-
-        $filmsTotal = count($films);
-        dump($filmsTotal);
-
-        $series = $this->getDoctrine()
-            ->getRepository('AppBundle:Medias')
-            ->findBy(array('type' => 'serie'));
-
-        $seriesTotal = count($series);
-        dump($seriesTotal);
-
-        return $this->render('AppBundle::nav.html.twig', array(
-            'filmsTotal' => $filmsTotal,
-            'seriesTotal' => $seriesTotal
-        ));
-    }*/
 }
