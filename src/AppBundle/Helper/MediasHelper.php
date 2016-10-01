@@ -16,6 +16,7 @@ class MediasHelper
     protected $isExist;
     protected $movies;
     protected $series;
+    protected $totalMedias;
 
     public function __construct(EntityManager $em, Translator $translator)
     {
@@ -61,25 +62,27 @@ class MediasHelper
         return $this->series = $series;
     }
 
-    /*public function getEachTypeMediasTotalAction()
+    public function getEachTypeMediasTotalAction()
     {
-        $films = $this->getDoctrine()
-            ->getRepository('AppBundle:Medias')
-            ->findBy(array('type' => 'film'));
+        $movies = $this->getMovies();
+        $series = $this->getSeries();
 
-        $filmsTotal = count($films);
-        dump($filmsTotal);
+        $totalMedias = array();
 
-        $series = $this->getDoctrine()
-            ->getRepository('AppBundle:Medias')
-            ->findBy(array('type' => 'serie'));
+        if ($movies) {
+            $totalMovies = count($movies);
+            dump($totalMovies);
 
-        $seriesTotal = count($series);
-        dump($seriesTotal);
+            $totalMedias = array_push($totalMovies, $totalMedias);
+        }
 
-        return $this->render('AppBundle::nav.html.twig', array(
-            'filmsTotal' => $filmsTotal,
-            'seriesTotal' => $seriesTotal
-        ));
-    }*/
+        if ($series) {
+            $totalSeries = count($series);
+            dump($totalSeries);
+
+            $totalMedias = array_push($totalSeries, $totalMedias);
+        }
+
+        return $this->totalMedias = $totalMedias;
+    }
 }
