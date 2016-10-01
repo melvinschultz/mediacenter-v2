@@ -116,6 +116,7 @@ class MediaController extends Controller
         }
 
         $mediaNom = $media->getNom();
+        $mediaImage = $media->getImage();
 
         $form = $this->createForm(new MediasType(), $media);
 
@@ -145,7 +146,8 @@ class MediaController extends Controller
 
         return $this->render('AppBundle:medias:update-media.html.twig', array(
             'form' => $form->createView(),
-            'nom' => $mediaNom
+            'nom' => $mediaNom,
+            'image' => $mediaImage
         ));
     }
 

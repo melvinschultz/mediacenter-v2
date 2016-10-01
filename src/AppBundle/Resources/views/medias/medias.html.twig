@@ -16,7 +16,7 @@
                     {% if movie.status == "pas_vu" %}
                         <span class="label-global label label-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ 'medias.never_seen'|trans }}"><i class="fa fa-eye-slash fa-2x"></i></span>
                     {% endif %}
-                    <img src="uploads/{{ movie.image }}" alt="{{ movie.nom }}" title="{{ movie.nom }}" />
+                    <img class="media-poster" src="uploads/{{ movie.image }}" alt="{{ movie.nom }}" title="{{ movie.nom }}" />
                 </a>
 
                 <!-- MODAL movie -->
@@ -33,7 +33,7 @@
                                 {% endif %}
                             </div>
                             <div class="modal-body">
-                                <img src="uploads/{{ movie.image }}" alt="{{ movie.nom }}" title="{{ movie.nom }}" />
+                                <img class="media-poster" src="uploads/{{ movie.image }}" alt="{{ movie.nom }}" title="{{ movie.nom }}" />
                                 <div class="description">
                                     <p><strong>{{ 'medias.year'|trans }} :</strong> {{ movie.annee|date('Y') }} / <strong>{{ 'medias.filmmakers'|trans }} :</strong> {{ movie.realisateurs }} / <strong>{{ 'medias.actors'|trans }} :</strong> {{ movie.acteurs }}</p>
                                     <p>{{ movie.description }}</p>
@@ -61,7 +61,7 @@
                     {% if serie.status == "pas_vu" %}
                         <span class="label-global label label-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ 'medias.never_seen'|trans }}"><i class="fa fa-eye-slash fa-2x"></i></span>
                     {% endif %}
-                    <img src="uploads/{{ serie.image }}" alt="{{ serie.nom }}" title="{{ serie.nom }}" />
+                    <img class="media-poster" src="uploads/{{ serie.image }}" alt="{{ serie.nom }}" title="{{ serie.nom }}" />
                 </a>
 
                 <!-- MODAL serie -->
@@ -78,7 +78,7 @@
                                 {% endif %}
                             </div>
                             <div class="modal-body">
-                                <img src="uploads/{{ serie.image }}" alt="{{ serie.nom }}" title="{{ serie.nom }}" />
+                                <img class="media-poster" src="uploads/{{ serie.image }}" alt="{{ serie.nom }}" title="{{ serie.nom }}" />
                                 <div class="description">
                                     <p><strong>{{ 'medias.year'|trans }} :</strong> {{ serie.annee|date('Y') }} / <strong>{{ 'medias.filmmakers'|trans }} :</strong> {{ serie.realisateurs }} / <strong>{{ 'medias.actors'|trans }} :</strong> {{ serie.acteurs }}</p>
                                     <p>{{ serie.description }}</p>
