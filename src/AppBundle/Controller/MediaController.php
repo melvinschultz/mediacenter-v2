@@ -12,6 +12,41 @@ use Symfony\Component\HttpFoundation\Response;
 class MediaController extends Controller
 {
     /**
+     * @Route("/medias", name="medias")
+     * @Route("/movies", name="movies")
+     * @Route("/series", name="series")
+     *
+     * @param Request $request
+     *
+     * @return Response
+     */
+    public function showAllAction(Request $request)
+    {
+        $path = $request->getPathInfo();
+
+        $mediasHelper = $this->get('mediacenter.medias_helper');
+
+        $movies = null;
+        $series = null;
+
+        if ($path == "/movies") {
+            $movies = $mediasHelper->getMovies();
+        }
+        elseif ($path == "/series") {
+            $series = $mediasHelper->getSeries();
+        }
+        else {
+            $movies = $mediasHelper->getMovies();
+            $series = $mediasHelper->getSeries();
+        }
+
+        return $this->render('AppBundle:medias:medias.html.twig', array(
+            'movies' => $movies,
+            'series' => $series
+        ));
+    }
+
+    /**
      * @Route("/add", name="add")
      *
      * @param Request $request
@@ -111,41 +146,6 @@ class MediaController extends Controller
         return $this->render('AppBundle:medias:update-media.html.twig', array(
             'form' => $form->createView(),
             'nom' => $mediaNom
-        ));
-    }
-
-    /**
-     * @Route("/medias", name="medias")
-     * @Route("/movies", name="movies")
-     * @Route("/series", name="series")
-     *
-     * @param Request $request
-     *
-     * @return Response
-     */
-    public function showAllAction(Request $request)
-    {
-        $path = $request->getPathInfo();
-
-        $mediasHelper = $this->get('mediacenter.medias_helper');
-
-        $movies = null;
-        $series = null;
-
-        if ($path == "/movies") {
-            $movies = $mediasHelper->getMovies();
-        }
-        elseif ($path == "/series") {
-            $series = $mediasHelper->getSeries();
-        }
-        else {
-            $movies = $mediasHelper->getMovies();
-            $series = $mediasHelper->getSeries();
-        }
-
-        return $this->render('AppBundle:medias:medias.html.twig', array(
-            'movies' => $movies,
-            'series' => $series
         ));
     }
 
