@@ -45,6 +45,9 @@ input {
 input:focus {
   color: #fff; /* pour themeCyborg.css */
 }
+input[type=text], #medias_description {
+  color: #fff;
+}
 h1 {
   color: #888888; /* pour themeCyborg.css */
 }
