@@ -1,103 +1,105 @@
 {% extends 'AppBundle::base.html.twig' %}
 
-{% block medias %}
-    {% if path(app.request.get('_route')) == '/medias' %}
-        <h3>{{ 'medias.movies'|trans }} &amp; {{ 'medias.tv_shows'|trans }}</h3>
-    {% elseif path(app.request.get('_route')) == '/movies' %}
-        <h3>{{ 'medias.movies'|trans }}</h3>
-    {% else %}
-        <h3>{{ 'medias.tv_shows'|trans }}</h3>
-    {% endif %}
+{% block body %}
+    <div class="container">
+        {% if path(app.request.get('_route')) == '/medias' %}
+            <h3>{{ 'medias.movies'|trans }} &amp; {{ 'medias.tv_shows'|trans }}</h3>
+        {% elseif path(app.request.get('_route')) == '/movies' %}
+            <h3>{{ 'medias.movies'|trans }}</h3>
+        {% else %}
+            <h3>{{ 'medias.tv_shows'|trans }}</h3>
+        {% endif %}
 
-    <div class="jumbotron">
-        {% if movies %}
-            {% for movie in movies %}
-                <a data-toggle="modal" data-target="#descModal{{ movie.id }}" href="" class="affiche">
-                    {% if movie.status == "pas_vu" %}
-                        <span class="label-global label label-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ 'medias.never_seen'|trans }}"><i class="fa fa-eye-slash fa-2x"></i></span>
-                    {% endif %}
-                    <img class="media-poster" src="uploads/{{ movie.image }}" alt="{{ movie.nom }}" title="{{ movie.nom }}" />
-                </a>
+        <div class="jumbotron">
+            {% if movies %}
+                {% for movie in movies %}
+                    <a data-toggle="modal" data-target="#descModal{{ movie.id }}" href="" class="affiche">
+                        {% if movie.status == "pas_vu" %}
+                            <span class="label-global label label-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ 'medias.never_seen'|trans }}"><i class="fa fa-eye-slash fa-2x"></i></span>
+                        {% endif %}
+                        <img class="media-poster" src="uploads/{{ movie.image }}" alt="{{ movie.nom }}" title="{{ movie.nom }}" />
+                    </a>
 
-                <!-- MODAL movie -->
-                <div id="descModal{{ movie.id }}" class="modal fade">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h3>{{ movie.nom }}</h3>
-                                {% if movie.status == "vu" %}
-                                    <span class="label label-success">{{ 'medias.already_seen'|trans }} <i class="fa fa-eye"></i></span>
-                                {% else %}
-                                    <span class="label label-danger">{{ 'medias.never_seen'|trans }} <i class="fa fa-eye-slash"></i></span>
-                                {% endif %}
-                            </div>
-                            <div class="modal-body">
-                                <img class="media-poster" src="uploads/{{ movie.image }}" alt="{{ movie.nom }}" title="{{ movie.nom }}" />
-                                <div class="description">
-                                    <p><strong>{{ 'medias.year'|trans }} :</strong> {{ movie.annee|date('Y') }} / <strong>{{ 'medias.filmmakers'|trans }} :</strong> {{ movie.realisateurs }} / <strong>{{ 'medias.actors'|trans }} :</strong> {{ movie.acteurs }}</p>
-                                    <p>{{ movie.description }}</p>
-                                    <a class="bandeAnnonce" href="{{ movie.trailer }}" target="_blank">{{ 'medias.watch_trailer'|trans }}</a>
+                    <!-- MODAL movie -->
+                    <div id="descModal{{ movie.id }}" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h3>{{ movie.nom }}</h3>
+                                    {% if movie.status == "vu" %}
+                                        <span class="label label-success">{{ 'medias.already_seen'|trans }} <i class="fa fa-eye"></i></span>
+                                    {% else %}
+                                        <span class="label label-danger">{{ 'medias.never_seen'|trans }} <i class="fa fa-eye-slash"></i></span>
+                                    {% endif %}
                                 </div>
-                            </div>
-                            <div class="modal-footer footer-toggle-first">
-                                <a href="{{ path('update_movie', {'id': movie.id}) }}"><button class="btn btn-primary">{{ 'edit'|trans }}</button></a>
-                                <button class="btn btn-danger delete-btn">{{ 'delete'|trans }}</button>
-                            </div>
-                            <div class="modal-footer footer-toggle-second hide">
-                                <p>{{ 'sure_want_delete'|trans }} <strong>{{ movie.nom }}</strong> ?</p>
-                                <a href="{{ path('delete_movie', {'id': movie.id}) }}"><button class="btn btn-danger">{{ 'yes'|trans }}</button></a>
-                                <button class="btn btn-primary annule-btn">{{ 'cancel'|trans }}</button>
+                                <div class="modal-body">
+                                    <img class="media-poster" src="uploads/{{ movie.image }}" alt="{{ movie.nom }}" title="{{ movie.nom }}" />
+                                    <div class="description">
+                                        <p><strong>{{ 'medias.year'|trans }} :</strong> {{ movie.annee|date('Y') }} / <strong>{{ 'medias.filmmakers'|trans }} :</strong> {{ movie.realisateurs }} / <strong>{{ 'medias.actors'|trans }} :</strong> {{ movie.acteurs }}</p>
+                                        <p>{{ movie.description }}</p>
+                                        <a class="bandeAnnonce" href="{{ movie.trailer }}" target="_blank">{{ 'medias.watch_trailer'|trans }}</a>
+                                    </div>
+                                </div>
+                                <div class="modal-footer footer-toggle-first">
+                                    <a href="{{ path('update_movie', {'id': movie.id}) }}"><button class="btn btn-primary">{{ 'edit'|trans }}</button></a>
+                                    <button class="btn btn-danger delete-btn">{{ 'delete'|trans }}</button>
+                                </div>
+                                <div class="modal-footer footer-toggle-second hide">
+                                    <p>{{ 'sure_want_delete'|trans }} <strong>{{ movie.nom }}</strong> ?</p>
+                                    <a href="{{ path('delete_movie', {'id': movie.id}) }}"><button class="btn btn-danger">{{ 'yes'|trans }}</button></a>
+                                    <button class="btn btn-primary annule-btn">{{ 'cancel'|trans }}</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
-        {% endif %}
+                {% endfor %}
+            {% endif %}
 
-        {% if series %}
-            {% for serie in series %}
-                <a data-toggle="modal" data-target="#descModal{{ serie.id }}" href="" class="affiche">
-                    {% if serie.status == "pas_vu" %}
-                        <span class="label-global label label-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ 'medias.never_seen'|trans }}"><i class="fa fa-eye-slash fa-2x"></i></span>
-                    {% endif %}
-                    <img class="media-poster" src="uploads/{{ serie.image }}" alt="{{ serie.nom }}" title="{{ serie.nom }}" />
-                </a>
+            {% if series %}
+                {% for serie in series %}
+                    <a data-toggle="modal" data-target="#descModal{{ serie.id }}" href="" class="affiche">
+                        {% if serie.status == "pas_vu" %}
+                            <span class="label-global label label-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="{{ 'medias.never_seen'|trans }}"><i class="fa fa-eye-slash fa-2x"></i></span>
+                        {% endif %}
+                        <img class="media-poster" src="uploads/{{ serie.image }}" alt="{{ serie.nom }}" title="{{ serie.nom }}" />
+                    </a>
 
-                <!-- MODAL serie -->
-                <div id="descModal{{ serie.id }}" class="modal fade">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h3>{{ serie.nom }}</h3>
-                                {% if serie.status == "vu" %}
-                                    <span class="label label-success">{{ 'medias.already_seen'|trans }} / {{ 'medias.watching'|trans }} <i class="fa fa-eye"></i></span>
-                                {% else %}
-                                    <span class="label label-danger">{{ 'medias.never_seen'|trans }} <i class="fa fa-eye-slash"></i></span>
-                                {% endif %}
-                            </div>
-                            <div class="modal-body">
-                                <img class="media-poster" src="uploads/{{ serie.image }}" alt="{{ serie.nom }}" title="{{ serie.nom }}" />
-                                <div class="description">
-                                    <p><strong>{{ 'medias.year'|trans }} :</strong> {{ serie.annee|date('Y') }} / <strong>{{ 'medias.filmmakers'|trans }} :</strong> {{ serie.realisateurs }} / <strong>{{ 'medias.actors'|trans }} :</strong> {{ serie.acteurs }}</p>
-                                    <p>{{ serie.description }}</p>
-                                    <a class="bandeAnnonce" href="{{ serie.trailer }}" target="_blank">{{ 'medias.watch_trailer'|trans }}</a>
+                    <!-- MODAL serie -->
+                    <div id="descModal{{ serie.id }}" class="modal fade">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    <h3>{{ serie.nom }}</h3>
+                                    {% if serie.status == "vu" %}
+                                        <span class="label label-success">{{ 'medias.already_seen'|trans }} / {{ 'medias.watching'|trans }} <i class="fa fa-eye"></i></span>
+                                    {% else %}
+                                        <span class="label label-danger">{{ 'medias.never_seen'|trans }} <i class="fa fa-eye-slash"></i></span>
+                                    {% endif %}
                                 </div>
-                            </div>
-                            <div class="modal-footer footer-toggle-first">
-                                <a href="{{ path('update_serie', {'id': serie.id}) }}"><button class="btn btn-primary">{{ 'edit'|trans }}</button></a>
-                                <button class="btn btn-danger delete-btn">{{ 'delete'|trans }}</button>
-                            </div>
-                            <div class="modal-footer footer-toggle-second hide">
-                                <p>{{ 'sure_want_delete'|trans }} <strong>{{ serie.nom }}</strong> ?</p>
-                                <a href="{{ path('delete_serie', {'id': serie.id}) }}"><button class="btn btn-danger">{{ 'yes'|trans }}</button></a>
-                                <button class="btn btn-primary annule-btn">{{ 'cancel'|trans }}</button>
+                                <div class="modal-body">
+                                    <img class="media-poster" src="uploads/{{ serie.image }}" alt="{{ serie.nom }}" title="{{ serie.nom }}" />
+                                    <div class="description">
+                                        <p><strong>{{ 'medias.year'|trans }} :</strong> {{ serie.annee|date('Y') }} / <strong>{{ 'medias.filmmakers'|trans }} :</strong> {{ serie.realisateurs }} / <strong>{{ 'medias.actors'|trans }} :</strong> {{ serie.acteurs }}</p>
+                                        <p>{{ serie.description }}</p>
+                                        <a class="bandeAnnonce" href="{{ serie.trailer }}" target="_blank">{{ 'medias.watch_trailer'|trans }}</a>
+                                    </div>
+                                </div>
+                                <div class="modal-footer footer-toggle-first">
+                                    <a href="{{ path('update_serie', {'id': serie.id}) }}"><button class="btn btn-primary">{{ 'edit'|trans }}</button></a>
+                                    <button class="btn btn-danger delete-btn">{{ 'delete'|trans }}</button>
+                                </div>
+                                <div class="modal-footer footer-toggle-second hide">
+                                    <p>{{ 'sure_want_delete'|trans }} <strong>{{ serie.nom }}</strong> ?</p>
+                                    <a href="{{ path('delete_serie', {'id': serie.id}) }}"><button class="btn btn-danger">{{ 'yes'|trans }}</button></a>
+                                    <button class="btn btn-primary annule-btn">{{ 'cancel'|trans }}</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
-        {% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
     </div>
-{% endblock medias %}
+{% endblock %}

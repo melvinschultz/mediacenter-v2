@@ -120,8 +120,6 @@ class MediaController extends Controller
 
         $form = $this->createForm(new MediasType(), $media);
 
-        dump($form);
-
         $form->handleRequest($request);
 
         if ($request->getMethod() == 'POST')

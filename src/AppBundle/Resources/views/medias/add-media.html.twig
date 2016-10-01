@@ -6,91 +6,93 @@
 
         <h3>{{ 'medias.form.add_media'|trans }}</h3>
 
-        <div class="container-media">
-            <div class="container-image">
-                <img class="no-photo" src="../../no-photo.png" alt="No photo" title="No photo" />
-            </div>
+        <div class="jumbotron">
+            <div class="container-media">
+                <div class="container-image">
+                    <img class="no-photo" src="../../no-photo.png" alt="No photo" title="No photo" />
+                </div>
 
-            <div class="container-form">
-                {{ form_start(form) }}
-                    <div class="container-form-radios">
-                        <div class="form-group media-type">
-                            {#{{ form_label(form.type) }}#}
-                            {{ form_widget(form.type) }}
-                            {{ form_errors(form.type) }}
+                <div class="container-form">
+                    {{ form_start(form) }}
+                        <div class="container-form-radios">
+                            <div class="form-group media-type">
+                                {#{{ form_label(form.type) }}#}
+                                {{ form_widget(form.type) }}
+                                {{ form_errors(form.type) }}
+                            </div>
+
+                            <div class="form-group media-status">
+                                {#{{ form_label(form.status) }}#}
+                                {{ form_widget(form.status) }}
+                                {{ form_errors(form.status) }}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            {{ form_label(form.image) }}
+                            {{ form_widget(form.image, {'attr': {'id': 'affiche'}}) }}
+                            {{ form_errors(form.image) }}
                         </div>
 
-                        <div class="form-group media-status">
-                            {#{{ form_label(form.status) }}#}
-                            {{ form_widget(form.status) }}
-                            {{ form_errors(form.status) }}
+                        <div class="form-group">
+                            {#{{ form_label(form.nom) }}#}
+                            {{ form_widget(form.nom, {'attr': {
+                                'class': 'form-control',
+                                'placeholder': 'medias.form.title'
+                            }}) }}
+                            {{ form_errors(form.nom) }}
                         </div>
-                    </div>
-                    <div class="form-group">
-                        {{ form_label(form.image) }}
-                        {{ form_widget(form.image, {'attr': {'id': 'affiche'}}) }}
-                        {{ form_errors(form.image) }}
-                    </div>
 
-                    <div class="form-group">
-                        {#{{ form_label(form.nom) }}#}
-                        {{ form_widget(form.nom, {'attr': {
-                            'class': 'form-control',
-                            'placeholder': 'medias.form.title'
-                        }}) }}
-                        {{ form_errors(form.nom) }}
-                    </div>
+                        <div class="form-group">
+                            {#{{ form_label(form.realisateurs) }}#}
+                            {{ form_widget(form.realisateurs, {'attr': {
+                                'class': 'form-control',
+                                'placeholder': 'medias.form.filmmakers'
 
-                    <div class="form-group">
-                        {#{{ form_label(form.realisateurs) }}#}
-                        {{ form_widget(form.realisateurs, {'attr': {
-                            'class': 'form-control',
-                            'placeholder': 'medias.form.filmmakers'
+                            }}) }}
+                            {{ form_errors(form.realisateurs) }}
+                        </div>
 
-                        }}) }}
-                        {{ form_errors(form.realisateurs) }}
-                    </div>
+                        <div class="form-group">
+                            {#{{ form_label(form.acteurs) }}#}
+                            {{ form_widget(form.acteurs, {'attr': {
+                                'class': 'form-control',
+                                'placeholder': 'medias.form.actors'
 
-                    <div class="form-group">
-                        {#{{ form_label(form.acteurs) }}#}
-                        {{ form_widget(form.acteurs, {'attr': {
-                            'class': 'form-control',
-                            'placeholder': 'medias.form.actors'
+                            }}) }}
+                            {{ form_errors(form.acteurs) }}
+                        </div>
 
-                        }}) }}
-                        {{ form_errors(form.acteurs) }}
-                    </div>
+                        <div class="form-group">
+                            {#{{ form_label(form.description) }}#}
+                            {{ form_widget(form.description, {'attr': {
+                                'class': 'form-control',
+                                'placeholder': 'medias.form.description'
 
-                    <div class="form-group">
-                        {#{{ form_label(form.description) }}#}
-                        {{ form_widget(form.description, {'attr': {
-                            'class': 'form-control',
-                            'placeholder': 'medias.form.description'
+                            }}) }}
+                            {{ form_errors(form.description) }}
+                        </div>
 
-                        }}) }}
-                        {{ form_errors(form.description) }}
-                    </div>
+                        <div class="form-group">
+                            {#{{ form_label(form.trailer) }}#}
+                            {{ form_widget(form.trailer, {'attr': {
+                                'class': 'form-control',
+                                'placeholder': 'medias.form.trailer_link'
 
-                    <div class="form-group">
-                        {#{{ form_label(form.trailer) }}#}
-                        {{ form_widget(form.trailer, {'attr': {
-                            'class': 'form-control',
-                            'placeholder': 'medias.form.trailer_link'
+                            }}) }}
+                            {{ form_errors(form.trailer) }}
+                        </div>
 
-                        }}) }}
-                        {{ form_errors(form.trailer) }}
-                    </div>
+                        <div class="form-group">
+                            {{ form_label(form.annee) }}
+                            {{ form_widget(form.annee) }}
+                            {{ form_errors(form.annee) }}
+                        </div>
 
-                    <div class="form-group">
-                        {{ form_label(form.annee) }}
-                        {{ form_widget(form.annee) }}
-                        {{ form_errors(form.annee) }}
-                    </div>
-
-                    <button class="btn btn-lg btn-primary btn-block">
-                        {{ 'add'|trans }}
-                    </button>
-                {{ form_end(form) }}
+                        <button class="btn btn-lg btn-primary btn-block">
+                            {{ 'add'|trans }}
+                        </button>
+                    {{ form_end(form) }}
+                </div>
             </div>
         </div>
     </div>
